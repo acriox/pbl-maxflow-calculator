@@ -7,10 +7,26 @@
         <meta name="description" content="Application used to calculate maximum flow in a transport network" />
 
         <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles/styles.css" />
     </head>
     <body>
-        <div id="root">
-            
+        <div class="shell">
+            <ul class="toolbar">
+                <li>File</li>
+                <li>Help</li>
+            </ul>
+
+            <div class="content">
+                <div class="message top-right-message"></div>
+                
+                <div class="graph-canvas">
+                    <div class="graph">Placeholder for a graph</div>
+                </div>
+
+                <div class="message bottom-left-message"></div>
+            </div>
         </div>
+
+        <script src="scripts/app.js"></script>
     </body>
 </html>

@@ -1,0 +1,76 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+
+body {
+	margin: 0;
+	font-family: 'Noto Sans', sans-serif;
+	font-size: 1rem;
+}
+
+.shell {
+	display: flex;
+	flex-direction: column;
+	height: 100vh;
+
+	background-color: gray;
+}
+
+.toolbar {
+	margin: 0;
+	background-color: #cccccc;
+	padding: 0.25rem 2rem;
+}
+
+.toolbar {
+	list-style-type: none;
+}
+
+.toolbar li {
+	display: inline-block;
+	margin: 0;
+}
+
+.toolbar li:not(:first-child) {
+	margin-left: 0.75rem;
+}
+
+.toolbar li::first-letter {
+	text-decoration: underline;
+}
+
+.content {
+	padding: 1rem 2rem;
+	background-color: #ffffff;
+	height: 100%;
+	position: relative;
+}
+
+.message {
+	font-size: 1.25rem;
+	color: #787878;
+	user-select: none;
+}
+
+.top-right-message {
+	position: absolute;
+	z-index: 10;
+	right: 2rem;
+	top: 2rem;
+}
+
+.bottom-left-message {
+	position: absolute;
+	z-index: 10;
+	left: 2rem;
+	bottom: 2rem;
+}
+
+.graph-canvas {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+
+	height: 100%;
+}
+
+.graph {
+}
