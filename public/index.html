@@ -17,13 +17,38 @@
             </ul>
 
             <div class="content">
-                <div class="message top-right-message"></div>
+                <div class="message top-right-message">
+                    I should be on the top right side
+                </div>
                 
                 <div class="graph-canvas">
-                    <div class="graph">Placeholder for a graph</div>
+
+                    <svg class="graph-edges">
+                        <defs>
+                            <marker id="graph-edge-head" markerWidth="13" markerHeight="13" refx="9" refy="5" orient="auto">
+                                <path d="M0,0 L0,10 L10,5" />
+                            </marker>
+                        </defs>
+                    </svg>
+
+                    <div class="graph-nodes">
+                        <div class="graph-layer" id="graph-layer-0">                            
+                        </div>
+
+                        <div class="graph-layer" id="graph-layer-1">
+                        </div>
+
+                        <div class="graph-layer" id="graph-layer-2">
+                        </div>
+
+                        <div class="graph-layer" id="graph-layer-3">
+                        </div>
+                    </div>
                 </div>
 
-                <div class="message bottom-left-message"></div>
+                <div class="message bottom-left-message">
+                    I should be on the bottom left side
+                </div>
             </div>
         </div>
 

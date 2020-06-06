@@ -1,76 +1,129 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&display=swap');
+@import url('../assets/noto_sans.css');
+
+:root {
+    --graph-node-bg-color: white;
+    --graph-node-fg-color: #000000;
+    --graph-edge-bg-color: #000000;
+    --graph-edge-fg-color: #000000;
+}
 
 body {
-	margin: 0;
-	font-family: 'Noto Sans', sans-serif;
-	font-size: 1rem;
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
 }
 
 .shell {
-	display: flex;
-	flex-direction: column;
-	height: 100vh;
-
-	background-color: gray;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
 }
 
 .toolbar {
-	margin: 0;
-	background-color: #cccccc;
-	padding: 0.25rem 2rem;
-}
-
-.toolbar {
-	list-style-type: none;
+    margin: 0;
+    background-color: #cccccc;
+    padding: 0.25rem 2rem;
+    list-style-type: none;
 }
 
 .toolbar li {
-	display: inline-block;
-	margin: 0;
+    display: inline-block;
+    margin: 0;
 }
 
 .toolbar li:not(:first-child) {
-	margin-left: 0.75rem;
+    margin-left: 0.75rem;
 }
 
 .toolbar li::first-letter {
-	text-decoration: underline;
+    text-decoration: underline;
 }
 
 .content {
-	padding: 1rem 2rem;
-	background-color: #ffffff;
-	height: 100%;
-	position: relative;
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    height: 100%;
+    position: relative;
 }
 
 .message {
-	font-size: 1.25rem;
-	color: #787878;
-	user-select: none;
+    font-size: 1.25rem;
+    color: #787878;
+    user-select: none;
 }
 
 .top-right-message {
-	position: absolute;
-	z-index: 10;
-	right: 2rem;
-	top: 2rem;
+    position: absolute;
+    z-index: 10;
+    right: 2rem;
+    top: 2rem;
 }
 
 .bottom-left-message {
-	position: absolute;
-	z-index: 10;
-	left: 2rem;
-	bottom: 2rem;
+    position: absolute;
+    z-index: 10;
+    left: 2rem;
+    bottom: 2rem;
 }
 
 .graph-canvas {
-	display: flex;
-	justify-content: center;
-	align-items: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 
-	height: 100%;
+    height: 100%;
 }
 
-.graph {
+.graph-nodes {
+    display: flex;
+    z-index: 30;
+}
+
+.graph-layer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.graph-layer:not(:first-child) {
+    margin-left: 8rem;
+}
+
+.graph-node {
+    background-color: var(--graph-node-bg-color);
+    display: flex;
+    width: 3rem;
+    height: 3rem;
+    border-radius: 100%;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+}
+
+.graph-node:not(:first-child) {
+    margin-top: 2rem;
+}
+
+.graph-node .label {
+    display: inline-block;
+}
+
+
+.graph-edges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.graph-edge {
+    marker-end: url(#graph-edge-head);
+    stroke: var(--graph-edge-bg-color);
+    stroke-width: 2;
+}
+
+#graph-edge-head {
+    fill: var(--graph-edge-bg-color);
 }
