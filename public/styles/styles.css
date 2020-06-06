@@ -70,7 +70,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-
+    position: relative;
     height: 100%;
 }
 
@@ -126,4 +126,9 @@ body {
 
 #graph-edge-head {
     fill: var(--graph-edge-bg-color);
+}
+
+.graph-edge-caption {
+    position: absolute;
+    z-index: 50;
 }
