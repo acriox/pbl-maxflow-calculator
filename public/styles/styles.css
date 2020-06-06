@@ -22,21 +22,56 @@ body {
 .toolbar {
     margin: 0;
     background-color: #cccccc;
-    padding: 0.25rem 2rem;
+    padding: 0 1.75rem;
     list-style-type: none;
 }
 
-.toolbar li {
+.toolbar > li {
     display: inline-block;
     margin: 0;
+    padding: 0.25rem 0.75rem;
+    user-select: none;
+    position: relative;
 }
 
-.toolbar li:not(:first-child) {
-    margin-left: 0.75rem;
+.toolbar > li:hover {
+    background-color: #a3a3a3;
+    cursor: pointer;
+}
+
+.toolbar > li:not(:first-child) {
+    margin-left: 0.25rem;
 }
 
 .toolbar li::first-letter {
     text-decoration: underline;
+}
+
+.toolbar-dropdown-panel {
+    display: none;
+    box-shadow: 1px 1px 1px #636363;
+    position: absolute;
+    top: calc(2.0rem - 1px);
+    left: 0;
+    z-index: 100;
+    min-width: 16rem;
+    background-color: #e4e4e4;
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: 2rem;
+}
+
+.toolbar li:hover > .toolbar-dropdown-panel {
+    display: block;
+}
+
+.toolbar-dropdown-panel li {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+}
+
+.toolbar-dropdown-panel li:hover {
+    background-color: #c2c2c2;
 }
 
 .content {
