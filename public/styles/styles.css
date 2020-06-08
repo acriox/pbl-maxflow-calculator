@@ -26,7 +26,7 @@ body {
     list-style-type: none;
 }
 
-.toolbar > li {
+.toolbar > .toolbar-button {
     display: inline-block;
     margin: 0;
     padding: 0.25rem 0.75rem;
@@ -34,13 +34,14 @@ body {
     position: relative;
 }
 
-.toolbar > li:hover {
-    background-color: #a3a3a3;
-    cursor: pointer;
+.toolbar > .toolbar-button:not(:first-child) {
+    margin-left: 0.25rem;
 }
 
-.toolbar > li:not(:first-child) {
-    margin-left: 0.25rem;
+.toolbar > .toolbar-button:hover,
+.toolbar > .toolbar-button--active {
+    background-color: #a3a3a3;
+    cursor: pointer;
 }
 
 .toolbar li::first-letter {
@@ -59,15 +60,17 @@ body {
     list-style-type: none;
     padding: 0;
     padding-bottom: 2rem;
+    cursor: default;
 }
 
-.toolbar li:hover > .toolbar-dropdown-panel {
+.toolbar .toolbar-button--active > .toolbar-dropdown-panel {
     display: block;
 }
 
 .toolbar-dropdown-panel li {
     margin: 0;
     padding: 0.5rem 0.75rem;
+    cursor: pointer;
 }
 
 .toolbar-dropdown-panel li:hover {

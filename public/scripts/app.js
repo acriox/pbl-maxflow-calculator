@@ -1,6 +1,9 @@
 const svg = document.querySelector('.graph-edges');
 const edge_caption_parent = document.querySelector('.graph-canvas');
 
+// TODO add graph-canvas redrawing on window resize
+// TODO split source code into modules
+
 function create_edge_between(el1, el2, caption) {
     let x1 = el1.offsetLeft + el1.offsetWidth / 2;
     let y1 = el1.offsetTop + el1.offsetHeight / 2;
@@ -104,3 +107,38 @@ for (let i = 0; i < node_labels.length; i++) {
         create_edge_between(nodeElements[i], nodeElements[destinationIdx], '123');
     }
 }
+
+/* register handlers for toolbar buttons */
+const toolbarButtonActiveClassName = 'toolbar-button--active';
+[...document.querySelectorAll('.toolbar-button')].forEach(item => {
+    item.addEventListener('click', (e) => {
+        if (e.target != item) return;
+        item.classList.toggle(toolbarButtonActiveClassName);
+
+        window.addEventListener('click', function butonDisabler(event) {
+            if (item.contains(event.target)) return;
+
+            item.classList.remove(toolbarButtonActiveClassName);
+            window.removeEventListener('click', butonDisabler);
+        });
+    });
+});
+
+/* register handlers for toolbar actions */
+[...document.querySelectorAll('.graph-file-loader')].forEach(item => {
+    item.addEventListener('click', () => {
+        confirm('Do you want to load a graph?');
+    });
+});
+
+[...document.querySelectorAll('.graph-sample-loader')].forEach(item => {
+    item.addEventListener('click', () => {
+        alert('Loading a sample graph..');
+    });
+});
+
+[...document.querySelectorAll('.about')].forEach(item => {
+    item.addEventListener('click', () => {
+        alert('Maxflow calculator');
+    });
+});
