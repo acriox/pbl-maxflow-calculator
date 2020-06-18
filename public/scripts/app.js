@@ -125,10 +125,23 @@ const toolbarButtonActiveClassName = 'toolbar-button--active';
 });
 
 /* register handlers for toolbar actions */
-[...document.querySelectorAll('.graph-file-loader')].forEach(item => {
-    item.addEventListener('click', () => {
-        confirm('Do you want to load a graph?');
-    });
+[...document.querySelectorAll('.graph-file-loader input[type="file"]')].forEach(item => {
+    item.oninput = (e) => {
+        if (!e.target.files[0]) {
+            return;
+        }
+        
+        let file = e.target.files[0];
+        let fileReader = new FileReader();
+        fileReader.onload = (event) => {
+            const data = event.target.result;
+            console.log(data);
+        }
+        fileReader.onerror = (event) => {
+            console.error('can not read file');
+        }
+        fileReader.readAsText(file);
+    }
 });
 
 [...document.querySelectorAll('.graph-sample-loader')].forEach(item => {

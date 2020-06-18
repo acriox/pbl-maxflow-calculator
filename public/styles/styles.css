@@ -71,6 +71,17 @@ body {
     margin: 0;
     padding: 0.5rem 0.75rem;
     cursor: pointer;
+    position: relative;
+}
+
+.toolbar-dropdown-panel li.graph-file-loader input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
 }
 
 .toolbar-dropdown-panel li:hover {
