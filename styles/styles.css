@@ -1,0 +1,231 @@
+@import url('../assets/noto_sans.css');
+
+:root {
+    --graph-node-bg-color: white;
+    --graph-node-fg-color: #000000;
+    --graph-edge-bg-color: #000000;
+    --graph-edge-fg-color: #000000;
+}
+
+body {
+    margin: 0;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 1rem;
+}
+
+.shell {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+}
+
+.toolbar {
+    margin: 0;
+    background-color: #cccccc;
+    padding: 0 1.75rem;
+    list-style-type: none;
+}
+
+.toolbar > .toolbar-button {
+    display: inline-block;
+    margin: 0;
+    padding: 0.25rem 0.75rem;
+    user-select: none;
+    position: relative;
+}
+
+.toolbar > .toolbar-button:not(:first-child) {
+    margin-left: 0.25rem;
+}
+
+.toolbar > .toolbar-button:hover,
+.toolbar > .toolbar-button--active {
+    background-color: #a3a3a3;
+    cursor: pointer;
+}
+
+.toolbar li::first-letter {
+    text-decoration: underline;
+}
+
+.toolbar-dropdown-panel {
+    display: none;
+    box-shadow: 1px 1px 1px #636363;
+    position: absolute;
+    top: calc(2.0rem - 1px);
+    left: 0;
+    z-index: 100;
+    min-width: 16rem;
+    background-color: #e4e4e4;
+    list-style-type: none;
+    padding: 0;
+    padding-bottom: 2rem;
+    cursor: default;
+}
+
+.toolbar .toolbar-button--active > .toolbar-dropdown-panel {
+    display: block;
+}
+
+.toolbar-dropdown-panel li {
+    margin: 0;
+    padding: 0.5rem 0.75rem;
+    cursor: pointer;
+    position: relative;
+}
+
+.toolbar-dropdown-panel li input[type="file"] {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.toolbar-dropdown-panel li:hover {
+    background-color: #c2c2c2;
+}
+
+.content {
+    padding: 1rem 2rem;
+    background-color: #ffffff;
+    height: 100%;
+    position: relative;
+}
+
+.message {
+    font-size: 1.5rem;
+    color: #787878;
+    user-select: none;
+}
+
+.top-right-message {
+    position: absolute;
+    z-index: 10;
+    right: 2rem;
+    top: 2rem;
+    text-align: right;
+}
+
+.bottom-left-message {
+    position: absolute;
+    z-index: 10;
+    left: 2rem;
+    bottom: 2rem;
+}
+
+.graph-canvas {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    height: 100%;
+}
+
+.graph-nodes {
+    display: flex;
+    z-index: 30;
+}
+
+.graph-layer {
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: column;
+}
+
+.graph-layer:not(:first-child) {
+    margin-left: 8rem;
+}
+
+.graph-node {
+    background-color: var(--graph-node-bg-color);
+    display: flex;
+    flex-direction: column;
+    width: 5rem;
+    height: 5rem;
+    border-radius: 100%;
+    border: 2px solid black;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+.graph-node .node-label {
+    font-size: 1.5rem;
+}
+
+.graph-node .capacity-label {
+    font-size: 0.75rem;
+}
+
+.graph-node.inactive:not(.source):not(.sink) {
+    color: #a3a3a3;
+    border-color: currentColor;
+}
+
+.graph-node.source {
+    background-color: #d9d9d9;
+}
+
+.graph-node.sink {
+    background-color: #999999;
+}
+
+.graph-node:not(:first-child) {
+    margin-top: 5rem;
+}
+
+.graph-node .label {
+    display: inline-block;
+}
+
+.graph-edges {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.graph-edge {
+    marker-end: url(#graph-edge-head-active);
+    stroke: var(--graph-edge-bg-color);
+    stroke-width: 2;
+}
+
+.graph-edge.inactive {
+    marker-end: url(#graph-edge-head-inactive);
+    stroke: #a3a3a3;
+}
+
+#graph-edge-head-active {
+    fill: black;
+}
+
+#graph-edge-head-inactive {
+    fill: #a3a3a3;
+}
+
+.graph-edge-caption {
+    position: absolute;
+    font-size: 0.75rem;
+    z-index: 50;
+}
+
+.graph-edge-caption.inactive {
+    color: #a3a3a3;
+}
+
+#welcome-screen .caption {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.hidden {
+    display: none;
+}

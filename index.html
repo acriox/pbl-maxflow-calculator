@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+
+        <title>RoadOptimizer</title>
+        <meta name="description" content="Application used to calculate maximum flow in a transport network" />
+
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="styles/styles.css" />
+    </head>
+    <body>
+        <div class="shell">
+            <ul class="toolbar">
+                <li class="toolbar-button">
+                    File
+
+                    <ul class="toolbar-dropdown-panel">
+                        <li id="graph-file-loader">
+                            Import graph from a file
+                            <input type="file" />
+                        </li>
+                        <li id="graph-sample-loader">Load a sample graph</li>
+                    </ul>
+                </li>
+                <li class="toolbar-button">
+                    Help
+
+                    <ul class="toolbar-dropdown-panel">
+                        <li id="about">About</li>
+                    </ul>
+                </li>
+            </ul>
+
+            <div id="welcome-screen" class="content">
+                <div class="caption">Welcome to Maxflow Calculator!</div>
+            </div>
+
+            <div id="graph-viewer" class="content hidden">
+                <div class="message top-right-message">
+                    I should be on the top right side
+                </div>
+                
+                <div class="graph-canvas">
+
+                    <svg class="graph-edges">
+                        <defs>
+                            <marker id="graph-edge-head-active" markerWidth="13" markerHeight="13" refx="9" refy="5" orient="auto">
+                                <path d="M0,0 L0,10 L10,5" />
+                            </marker>
+
+                            <marker id="graph-edge-head-inactive" markerWidth="13" markerHeight="13" refx="9" refy="5" orient="auto">
+                                <path d="M0,0 L0,10 L10,5" />
+                            </marker>
+                        </defs>
+                    </svg>
+
+                    <div class="graph-nodes">
+                    </div>
+                </div>
+
+                <div class="message bottom-left-message">
+                    I should be on the bottom left side
+                </div>
+            </div>
+        </div>
+
+        <script src="scripts/app.js"></script>
+    </body>
+</html>
