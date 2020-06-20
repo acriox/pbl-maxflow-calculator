@@ -74,7 +74,7 @@ body {
     position: relative;
 }
 
-.toolbar-dropdown-panel li.graph-file-loader input[type="file"] {
+.toolbar-dropdown-panel li input[type="file"] {
     position: absolute;
     width: 100%;
     height: 100%;
@@ -96,7 +96,7 @@ body {
 }
 
 .message {
-    font-size: 1.25rem;
+    font-size: 1.5rem;
     color: #787878;
     user-select: none;
 }
@@ -106,6 +106,7 @@ body {
     z-index: 10;
     right: 2rem;
     top: 2rem;
+    text-align: right;
 }
 
 .bottom-left-message {
@@ -141,23 +142,46 @@ body {
 .graph-node {
     background-color: var(--graph-node-bg-color);
     display: flex;
-    width: 3rem;
-    height: 3rem;
+    flex-direction: column;
+    width: 5rem;
+    height: 5rem;
     border-radius: 100%;
     border: 2px solid black;
     justify-content: center;
     align-items: center;
+    box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
+}
+
+.graph-node .node-label {
     font-size: 1.5rem;
 }
 
+.graph-node .capacity-label {
+    font-size: 0.75rem;
+}
+
+.graph-node.inactive:not(.source):not(.sink) {
+    color: #a3a3a3;
+    border-color: currentColor;
+}
+
+.graph-node.source {
+    background-color: #d9d9d9;
+}
+
+.graph-node.sink {
+    background-color: #999999;
+}
+
 .graph-node:not(:first-child) {
-    margin-top: 2rem;
+    margin-top: 5rem;
 }
 
 .graph-node .label {
     display: inline-block;
 }
-
 
 .graph-edges {
     position: absolute;
@@ -168,16 +192,40 @@ body {
 }
 
 .graph-edge {
-    marker-end: url(#graph-edge-head);
+    marker-end: url(#graph-edge-head-active);
     stroke: var(--graph-edge-bg-color);
     stroke-width: 2;
 }
 
-#graph-edge-head {
-    fill: var(--graph-edge-bg-color);
+.graph-edge.inactive {
+    marker-end: url(#graph-edge-head-inactive);
+    stroke: #a3a3a3;
+}
+
+#graph-edge-head-active {
+    fill: black;
+}
+
+#graph-edge-head-inactive {
+    fill: #a3a3a3;
 }
 
 .graph-edge-caption {
     position: absolute;
+    font-size: 0.75rem;
     z-index: 50;
+}
+
+.graph-edge-caption.inactive {
+    color: #a3a3a3;
+}
+
+#welcome-screen .caption {
+    font-size: 2.5rem;
+    text-align: center;
+    padding-top: 4rem;
+}
+
+.hidden {
+    display: none;
 }
